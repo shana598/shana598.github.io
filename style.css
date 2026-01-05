@@ -1,0 +1,1645 @@
+:root {
+    --accent-color1: #9d86ff;
+    --accent-color2: #7d52fd;
+    --dark-color: #151022;
+    --para-color: #d0cfd3;
+    --white-color: #ffffff;
+    --darkbg-color: #1e1828;
+    --borderr: #3a3147;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+* a {
+    color: white;
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    color: var(--white-color);
+}
+p {
+    font-family: "Satoshi", sans-serif;
+}
+
+.container {
+    width: 100% !important;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.portfolio {
+    background-color: var(--dark-color);
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    color: var(--white-color);
+}
+.portfolio-sticky-wrapper {
+    position: relative;
+    overflow: visible;
+    z-index: 2;
+}
+.portfolio::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 2s ease-out, opacity 2s ease-out; /* CSS transition JS-il ninnum maatti */
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* header-section--start ---------------------------*/
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--darkbg-color);
+}
+
+.header-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+    gap: 2rem;
+    /* padding: 20px 0; */
+    position: relative;
+    z-index: 1;
+}
+.logo-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    h4 {
+        color: var(--white-color);
+        font-size: 35px;
+    }
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: fit-content;
+    height: auto;
+    padding: 4px 9px;
+    position: relative;
+    margin-top: -0.5px;
+    margin-bottom: -0.5px;
+    border-radius: 50px;
+    border: none;
+}
+.navbar a {
+    position: relative;
+    text-decoration: none;
+    color: var(--white-color);
+    font-family: "Bricolage Grotesque";
+    padding: 10px 5px;
+    transition: 0.3s ease;
+}
+.navbar a::before,
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color1);
+    transition: all 0.6s ease-in-out;
+}
+.navbar a::after {
+    top: 0;
+    right: 0;
+    transform-origin: right;
+}
+.navbar a::before {
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+}
+.navbar a:hover::after,
+.navbar a:hover::before {
+    width: 100%; /* */
+}
+
+.navbar a:hover {
+    color: var(--accent-color2);
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 18px;
+}
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.hire {
+    position: relative;
+    padding: 10px 25px;
+    background: var(--accent-color2);
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-block;
+    border: none;
+}
+
+.hire h6 a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    z-index: 12;
+    display: block;
+}
+
+.hire::before,
+.hire::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: transparent;
+    z-index: -1;
+    transition: 0.3s;
+}
+.hire:hover::before,
+.hire:hover::after {
+    background-image: conic-gradient(from var(--angle) at 50% 50%, transparent 0%, #000 33%, transparent 66%);
+    animation: rotate 2s linear infinite; /* Animation ivide nalki */
+}
+.hire:hover h6 a {
+    color: var(--white-color);
+}
+
+@keyframes rotate {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+/* -------------------- */
+.lighting-effect {
+    position: absolute;
+    top: -204px;
+    left: -116px;
+    /* width: 1698px; */
+    width: 100vw;
+    height: 711px;
+    display: flex;
+}
+.effect {
+    background-color: var(--accent-color2);
+    filter: blur(75px);
+}
+.effect-1 {
+    margin-top: 78.4px;
+    width: 120px;
+    height: 650px;
+    margin-left: 163.1px;
+    border-radius: 60px / 325px;
+    transform: rotate(-32deg);
+}
+.effect-2 {
+    margin-top: -3.5px;
+    width: 120px;
+    height: 500px;
+    margin-left: 249.9px;
+    border-radius: 60px / 250px;
+    transform: rotate(-30deg);
+}
+.effect-3 {
+    margin-top: -3.5px;
+    width: 120px;
+    height: 500px;
+    margin-left: 468px;
+    border-radius: 60px / 250px;
+    transform: rotate(-150deg);
+}
+.effect-4 {
+    margin-top: 78.4px;
+    width: 120px;
+    height: 650px;
+    margin-left: 174.1px;
+    border-radius: 60px / 325px;
+    transform: rotate(-148deg);
+}
+.nav_toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 8px 0px;
+    align-items: center;
+    cursor: pointer; /* മൗസ് വെക്കുമ്പോൾ കൈ ചിഹ്നം വരാൻ */
+
+    /* പ്രധാന മാറ്റം ഇവിടെയാണ് */
+    margin-left: auto;
+    transition: 0.3s;
+    z-index: 1001; /* മെനുവിന് മുകളിൽ നിൽക്കാൻ */
+}
+
+/* ഐക്കൺ വശങ്ങളിൽ മുട്ടി ഇരിക്കാതിരിക്കാൻ കണ്ടെയ്‌നറിൽ ചെറിയ മാറ്റം */
+.header-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* മുഴുവൻ വലിപ്പവും എടുക്കാൻ */
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.nav_toggle span {
+    width: 35px;
+    height: 3px;
+    background: var(--white-color);
+    border-radius: 13px;
+    border: solid 0.01px var(--white-color);
+    transition: 0.5s all ease-in-out;
+    position: relative;
+}
+
+.nav_toggle :nth-child(2) {
+    transition: 0.5s all;
+}
+
+.nav_toggle.clicked span:nth-child(1) {
+    transform: rotate(45deg);
+
+    top: 14px;
+}
+
+.nav_toggle.clicked span:nth-child(3) {
+    transform: rotate(-45deg);
+
+    top: -8px;
+}
+
+.nav_toggle.clicked span:nth-child(2) {
+    transform: translateX(10px);
+
+    opacity: 0;
+}
+
+.slider-bar {
+    visibility: hidden;
+}
+
+/* Sidebar Navigation Styling */
+nav ul {
+    margin: 0;
+    padding: 6rem 30px 30px 0px;
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--darkbg-color);
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    font-family: montserrat;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    padding: 25px 0 25px 25px;
+}
+
+/* Hover Animation left to right */
+nav ul li a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent-color2);
+    border-radius: 0 40px 40px 0;
+    z-index: -1;
+    transition: all 300ms ease-in-out;
+}
+nav ul li a:hover:before {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #2b2626;
+}
+
+nav ul li a:hover:before {
+    width: 95%;
+}
+
+/* header-section--end---------------------------*/
+/* hero-section--start---------------------------*/
+
+.hero-image {
+    width: 100%;
+    max-width: 500px; /* same width */
+    height: 500px; /* IMPORTANT: fixed height */
+    overflow: hidden; /* zoom പുറത്തേക്ക് പോകരുത് */
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* image stretch ആകരുത് */
+    display: block;
+
+    filter: grayscale(100%);
+    transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+/* Hover */
+.hero-image:hover .hero-img {
+    filter: grayscale(0%);
+}
+
+/* Hover cheyyumpōḷ uḷḷa image thudakkattil hide cheyyuka */
+
+.hero-section {
+    padding: 0px 1.5rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-top: 5rem;
+}
+/* inside hero-section */
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-top: -9px;
+}
+
+.hero-section .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-head h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.scroller {
+    height: 1.2em;
+    line-height: 1.2em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.inner-header {
+    position: relative;
+    animation: slide 9s infinite; /* 9 സെക്കൻഡിൽ ആനിമേഷൻ ലൂപ്പ് ചെയ്യും */
+}
+
+/* ആനിമേഷൻ സ്റ്റെപ്പുകൾ */
+@keyframes slide {
+    0%,
+    25% {
+        top: 0;
+    }
+    33%,
+    58% {
+        top: -1.2em;
+    } /* രണ്ടാമത്തെ വാക്ക് (Web Developer) */
+    66%,
+    91% {
+        top: -2.4em;
+    } /* മൂന്നാമത്തെ വാക്ക് (App Designer) */
+    100% {
+        top: -3.6em;
+    } /* തിരികെ ആദ്യ വാക്കിലേക്ക് */
+}
+
+/* SUB-HEAD */
+.hero-section .sub-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 50px;
+    background: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.16));
+    width: max-content;
+    padding: 10px 7px;
+    font-size: 20px;
+}
+
+/* MAIN HEAD */
+.hero-section .main-head h1 {
+    line-height: 1.2;
+    font-size: 70px;
+}
+
+.hero-section .main-head .second-line {
+    display: block;
+    padding-left: 80px;
+}
+
+/* PARAGRAPH */
+.hero-section .main-para {
+    font-size: 18px;
+    color: var(--para-color);
+    margin-top: 10px;
+}
+
+.hero-section .main-para span {
+    display: block;
+    margin-top: 4px;
+}
+
+/* BUTTONS */
+:root {
+    --primary-purple: 250 66% 61%; /* Video purple shade */
+}
+
+/* Buttons side-by-side aayi nilkkan */
+.two-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* Base Button Style */
+.blob-btn {
+    position: relative;
+    padding: 12px 25px;
+    background: hsl(0, 0%, 85%); /* Video dark background */
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: color 0.5s;
+    min-width: 160px;
+}
+
+.blob-btn a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    z-index: 10; /* Text blobs-nu mukalil nilkkan */
+}
+/* My Works button-u mathramulla background */
+.btn-works {
+    background: #1a1a1a4d !important; /* Ivide ningalkku ishtamulla color nalkam (eg: #222 or Dark Blue) */
+    border: 1px solid var(--accent-color2) !important; /* Border niram maattan */
+    color: var(--white-color) !important;
+}
+
+/* Blob Layers & Animation */
+.blob-btn__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.blob-btn__blobs {
+    position: relative;
+    display: block;
+    height: 100%;
+}
+
+.blob-btn__blob {
+    position: absolute;
+    top: 0;
+    width: 26%; /* Smooth overlap-nu vendi */
+    height: 100%;
+    background: hsl(var(--primary-purple)); /* Video purple color */
+    border-radius: 100%;
+    transform: translate3d(0, 150%, 0) scale(1.7); /* Airy effect */
+    transition: transform 0.45s ease-in-out;
+}
+
+/* Delay for liquid effect */
+.blob-btn__blob:nth-child(1) {
+    left: 0%;
+    transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+    left: 25%;
+    transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+    left: 50%;
+    transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+    left: 75%;
+    transition-delay: 0.24s;
+}
+
+/* Hover Trigger */
+.blob-btn:hover .blob-btn__blob {
+    transform: translate3d(0, 0, 0) scale(1.7);
+}
+
+.blob-btn:hover {
+    color: #ffffff;
+}
+.btn-works:hover a {
+    color: black !important;
+}
+
+/* hero-section--end---------------------------*/
+/* service-strip-start-------------------------- */
+.service-strip {
+    width: 100%;
+    overflow: hidden; /* Purathekku pokunna content hide cheyyan */
+    background: #ffffff;
+    padding: 1.5rem 0;
+    margin: 3rem auto -5rem;
+    position: relative;
+    z-index: 3;
+}
+
+.strip-content {
+    display: flex;
+    align-items: center;
+    gap: 7rem; /* Spacing */
+    width: max-content; /* Content-inte length anusarichu width edukkan */
+    animation: scroll 20s linear infinite; /* Animation name, speed, loop */
+}
+
+.strip-content span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap; /* Text thazhekk pogaathirikkaan */
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Animation Define cheyyunnu */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Pathi dhooram ethumbol loop reset aakum */
+    }
+}
+
+/* Mouse vekkumpol animation nilkkan (Optional) */
+.service-strip:hover .strip-content {
+    animation-play-state: paused;
+}
+
+/* service-strip-end-------------------------- */
+/* --- ABOUT SECTION STYLES --- */
+.blurr {
+    position: absolute;
+    background-color: var(--accent-color2);
+    filter: blur(75px);
+    opacity: 0.5;
+    z-index: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+/* LEFT SIDE */
+.blur-1 {
+    top: 268px;
+    left: -107px;
+}
+
+/* RIGHT SIDE */
+.blur-2 {
+    bottom: 460px;
+    right: -107px;
+}
+.about-section {
+    padding: 100px 1.5rem;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+    padding-top: 7rem; /* service strip overlap cheyyunnath kond extra top space */
+    background: var(--darkbg-color);
+}
+
+.about-section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.about-image-column {
+    flex: 1;
+    max-width: 450px;
+    height: 550px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+.designer-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: -2rem;
+
+    /* Black & White by default */
+    filter: grayscale(100%);
+    transition: filter 0.6s ease;
+}
+
+/* Hover effect */
+.about-image-column:hover .designer-photo {
+    filter: grayscale(0%);
+}
+
+.about-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 20px;
+}
+
+/* ABOUT ME - Subhead */
+.about-me-subhead {
+    color: var(--accent-color1);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* Main Heading */
+.about-text-column h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    color: var(--white-color);
+}
+
+/* Paragraphs */
+.description-para {
+    font-size: 18px;
+    color: var(--para-color);
+    line-height: 1.6;
+}
+
+/* Download CV Button */
+.download-button {
+    display: inline-block;
+    background: var(--white-color);
+    color: black;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: bold;
+    padding: 14px 24px;
+    width: 180px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    text-align: center;
+    position: relative; /* Progress bar position cheyyaan */
+    overflow: hidden; /* Progress bar button-u purathekk varathirikan */
+}
+
+/* Hover Effect */
+.download-button:hover {
+    background: transparent;
+    color: var(--accent-color2);
+    border: 2px solid var(--accent-color2);
+    border-radius: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Progress Bar Style */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%; /* Button-te akam motham fill aakan */
+    width: 0%;
+    background: var(--accent-color2); /* Progress color */
+    z-index: 1;
+    transition: width 0.5s ease;
+    opacity: 0.2; /* Text kaanikan vendi opacity kurachu */
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2; /* Text eppozhum mukalil nilkan */
+}
+
+/* Animation trigger aakanulla class */
+.download-button.active .progress-bar {
+    width: 100%;
+    transition: width 2s linear; /* 2 second-il load aakum */
+}
+
+/* --- Stats Strip STYLES (Bottom section: 0.6+, 2+, 100%) --- */
+
+.stats-strip-about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.stat-box {
+    flex: 1;
+    text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.16));
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.35s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-color1);
+}
+
+.stat-number {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--white-color);
+    line-height: 1;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.stat-number .plus {
+    color: var(--accent-color1);
+}
+
+.stat-label {
+    font-size: 16px;
+    color: var(--para-color);
+    margin-top: 5px;
+}
+
+/* ===================== SERVICES SECTION ===================== */
+.service-text {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        color: var(--accent-color1);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-family: "Bricolage Grotesque", sans-serif;
+    }
+    h2 {
+        margin-top: 10px;
+        font-size: 40px;
+        text-align: center;
+        color: var(--white-color);
+    }
+}
+.services-section {
+    padding: 120px 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* FLEX CONTAINER */
+.services-flex {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column; /* Vertical aayi cards varan */
+    position: relative;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2rem;
+}
+
+/* CARD BASE STYLES */
+.service-card {
+    background: rgba(255, 255, 255, 0.05); /* Image-le pole transparency */
+    border-radius: 20px;
+    padding: 25px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: row; /* Iconum textum nere varan */
+    align-items: center;
+    gap: 1.5rem;
+    width: 60%; /* Card-inte neelam kurakkan */
+    transition: 0.35s ease;
+}
+
+/* ALIGNMENT (Zigzag) */
+.service-card.left {
+    align-self: flex-start; /* Idath vashath nilkan */
+}
+
+.service-card.right {
+    align-self: flex-end; /* Valath vashath nilkan */
+}
+
+/* Text alignment inside card */
+.card-text {
+    text-align: left;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .service-card {
+        width: 100%; /* Mobile-il full width aakan */
+        flex-direction: column;
+        text-align: center;
+    }
+    .card-text {
+        text-align: center;
+    }
+}
+
+/* Hover Effect */
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-6px);
+    border-color: var(--accent-color1);
+}
+
+/* SVG-iyude purathulla div */
+.connector-line,
+.connector-left {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    right: 11rem;
+    bottom: 46rem;
+}
+
+/* SVG-iyude alignment adjust cheyyaan */
+.connector-line img {
+    width: 200px;
+    height: auto;
+    opacity: 1.4;
+}
+
+.connector-left img {
+    width: 110px;
+}
+/* ORO LINE-NUM PRATHYEKAM POSITION KODUKKUKA */
+
+/* Idath ninnu valathottekkulla line */
+.connector-line.first {
+    top: 5%;
+    right: 20%;
+}
+.connector-line.second {
+    top: 39.8%;
+    right: 20%;
+}
+.connector-line.third {
+    top: 74%;
+    right: 20%;
+}
+.connector-left.first {
+    top: 14%;
+    left: 29%;
+}
+.connector-left.second {
+    top: 48%;
+    left: 29%;
+}
+.connector-left.third {
+    top: 83%;
+    left: 29%;
+}
+/* ============ TOOLS SECTION ============ */
+
+.tools-section {
+    padding: 120px 1.5rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* purple blur behind cards */
+.tools-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 70%;
+    height: 320px;
+    background: radial-gradient(circle at center, rgba(157, 134, 255, 0.5), rgba(125, 82, 253, 0.15), transparent 70%);
+    filter: blur(110px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* heading reused from services section */
+.tools-section .section-tag {
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-color1);
+    text-align: center;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.tools-section .section-title {
+    margin-top: 10px;
+    font-size: 40px;
+    text-align: center;
+    color: var(--white-color);
+}
+
+/* GRID OF CARDS */
+
+.tools-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    justify-items: center;
+}
+
+/* CARD STYLE */
+
+.tool-card {
+    width: 180px;
+    height: 210px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%), rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: 0.3s ease;
+}
+
+/* logo */
+.tool-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* name */
+.tool-card span {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white-color);
+}
+
+/* hover effect */
+.tool-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-color1);
+    box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.15); /* Indigo tint ulla shadow */
+}
+.connect-next {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    right: 11rem;
+    bottom: 46rem;
+    right: 58rem;
+    bottom: 12.5rem;
+}
+
+/* SVG-iyude alignment adjust cheyyaan */
+.connect-next img {
+    width: 200px;
+    height: auto;
+    opacity: 1.4;
+}
+
+/* ============ PORTFOLIO-SECTION ============ */
+#project {
+    background: linear-gradient(to top, #151022 0%, #1e1828 100%);
+    position: relative;
+    padding-bottom: 100px;
+}
+
+#project-list-section {
+    display: block;
+}
+
+.header-space {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    p {
+        font-size: 18px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent-color1);
+        text-align: center;
+        font-family: "Bricolage Grotesque", sans-serif;
+        margin-bottom: 1rem;
+    }
+}
+
+.works-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 🔥 MAIN STICKY CARD FIX */
+.project-card {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px; /* സ്ക്രോൾ ചെയ്യുമ്പോൾ മുകളിൽ നിൽക്കേണ്ട ദൂരം */
+    height: 550px;
+    width: 100%;
+    /* 🔧 FIX: 20vh മാറ്റി 80px ആക്കി, ഇതോടെ അനാവശ്യ ഗ്യാപ്പ് മാറും */
+    margin-bottom: 80px;
+    border-radius: 40px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0px -15px 50px #7d52fd48;
+    transition: transform 0.3s ease;
+    background-color: #111;
+}
+
+.work-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.work-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.work-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.work-overlay p {
+    margin-bottom: 10px;
+}
+
+/* STACKING ORDER: ഒന്നിനു മുകളിൽ ഒന്നായി വരാൻ */
+.card-1 {
+    z-index: 1;
+}
+.card-2 {
+    z-index: 2;
+}
+.card-3 {
+    z-index: 3;
+}
+.card-4 {
+    z-index: 4;
+}
+
+/* ================= FULL DESIGN VIEW ================= */
+#full-design-view {
+    display: none;
+    background-color: #0b0b0b;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0; /* 🔧 താഴെ വരെ ഉണ്ടെന്ന് ഉറപ്പാക്കുന്നു */
+    z-index: 99999;
+    overflow-y: scroll; /* 🔧 നിർബന്ധമായും സ്ക്രോൾ ചെയ്യാൻ (scroll അല്ലെങ്കിൽ auto) */
+    -webkit-overflow-scrolling: touch; /* മൊബൈലിൽ സ്മൂത്ത് സ്ക്രോളിംഗിന് */
+}
+
+/* ഇമേജ് കണ്ടെയ്നർ ശരിയാക്കാൻ */
+.full-img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* ഒന്നിലധികം ഇമേജ് ഉണ്ടെങ്കിൽ താഴെ താഴെ വരാൻ */
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100%; /* കണ്ടന്റ് കുറവാണെങ്കിലും സ്ക്രോൾ ഏരിയ നിലനിർത്താൻ */
+}
+.design-nav {
+    position: sticky;
+    top: 0;
+    padding: 20px 40px;
+    background: rgba(11, 11, 11, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100001;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #7d52fd;
+    color: white;
+}
+
+.full-img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+/* ബട്ടൺ കണ്ടെയ്നർ */
+.view-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; /* കാർഡുകളിൽ നിന്നുള്ള അകലം */
+    padding-bottom: 60px;
+}
+
+/* View More ബട്ടൺ സ്റ്റൈൽ */
+.view-more-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #7d52fd, #4b2cc3);
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(125, 82, 253, 0.3);
+}
+
+.view-more-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(125, 82, 253, 0.5);
+    background: linear-gradient(135deg, #8d66ff, #5a39d1);
+}
+
+/* ======END=========================== */
+.blur-class {
+    position: relative;
+}
+.blur-5 {
+    right: -10rem;
+    top: -14rem;
+}
+/* ============ FAQ SECTION ============ */
+.faq-container-main {
+    min-height: 100vh; /* Scroll issue ozhivakkan min-height use cheyyuka */
+    padding: 60px 1.5rem;
+    position: relative;
+    z-index: 2;
+    background: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.faq-left-side h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.faq-description {
+    color: var(--para-color);
+    margin-top: 25px;
+    font-size: 1.1rem;
+    max-width: 350px;
+    line-height: 1.4;
+}
+
+/* FAQ Item Styling */
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* Arrow Icon */
+.faq-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid var(--accent-color1);
+    border-bottom: 2px solid var(--accent-color1);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+/* Answer Content */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer p {
+    padding: 0 0 30px 0;
+    margin: 0;
+    color: var(--para-color);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Active State */
+.faq-item.active .faq-icon {
+    transform: rotate(-135deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+/* Tablet & Mobile View */
+@media (max-width: 992px) {
+    .faq-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .faq-left-side h2 {
+        font-size: 40px;
+    }
+}
+/* ============ CONTACT-SECTION============ */
+.contact-section {
+    width: 100%;
+    background: var(--darkbg-color);
+    border-radius: 50px 50px 0 0;
+    padding: 40px 48px 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+}
+.contact-wrapper {
+    font-family: "Satoshi", sans-serif !important;
+}
+
+/* LEFT SIDE */
+.contact-info {
+    flex: 0.9;
+}
+
+.contact-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.contact-title span {
+    color: var(--accent-color2);
+}
+
+.info-block {
+    margin-bottom: 24px;
+    font-family: "Satoshi", sans-serif;
+}
+
+.info-label {
+    font-size: 16px;
+    color: var(--white-color);
+    margin-bottom: 6px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SOCIAL ICONS */
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.socials a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--para-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--para-color);
+    text-decoration: none;
+    transition: 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.socials a:hover {
+    background: var(--accent-color1);
+    color: #0f0a1a;
+    transform: translateY(-1px);
+}
+
+/* FORM AREA */
+.contact-form-wrapper {
+    flex: 1.4;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-input,
+.form-textarea {
+    background: transparent;
+    border: 1px solid #7e7e7e50;
+    border-radius: 4px;
+    padding: 10px 12px;
+    color: var(--para-color);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #6e6680;
+}
+
+.form-textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--para-color);
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.4);
+}
+
+.full-row {
+    grid-column: 1 / -1;
+}
+
+/* BUTTON */
+.submit-btn {
+    margin-top: 8px;
+    width: fit-content;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 999px;
+    background: #4b2cc3; /* Nningalude brand color */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(75, 44, 195, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Oru light shine effect (Hover cheyyumpol mathram) */
+.submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(75, 44, 195, 0.4);
+    background: #5a39d1; /* Kurach koodi bright aaya shade */
+}
+
+.submit-btn:hover::before {
+    left: 100%; /* Button-te ulliloode oru minnal pole shine pookum */
+}
+
+.submit-btn:active {
+    transform: scale(0.95); /* Click cheyyumpol ulla effect */
+}
+
+/* FOOTER */
+.bottom-row {
+    margin-top: 40px;
+    display: flex; /* Flexbox enable cheyyunnu */
+    justify-content: space-between; /* Ithaanu icons-ine left-ilekkum text-ine right-ilekkum maattunnath */
+    align-items: center; /* Randum ore line-il varaan sahayikkum */
+    color: var(--muted);
+    width: 100%; /* Full width urappakkunnu */
+}
+
+/* Icons-nte idayile gap set cheyyaan */
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+/* Copyright text-inte style */
+.copyright {
+    font-family: "Satoshi", sans-serif;
+    text-align: right;
+}
+
+/* Tooltip animation correct aayi nilkkan */
+.icon-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tooltip style (Video-yil parayunna pole) */
+.icon-content .tooltip {
+    position: absolute;
+    top: -45px;
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -55px; /* Hover cheyyumpol melle pongum */
+}
+hr {
+    color: #6b6972;
+    border: 0.5px solid;
+}

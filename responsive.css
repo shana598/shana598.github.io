@@ -1,0 +1,275 @@
+/* ================================================================
+   1. Large Screens (Max Width: 1200px)
+   ================================================================ */
+@media (max-width: 1200px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    h1 {
+        font-size: 50px !important;
+    }
+    .second-line {
+        font-size: 50px;
+    }
+}
+
+/* ================================================================
+   2. Tablets and Smaller Desktops (Max Width: 992px)
+   ================================================================ */
+@media (max-width: 992px) {
+    /* Fonts */
+    h1 {
+        font-size: 35px !important;
+    }
+    .second-line {
+        font-size: 34px !important;
+    }
+
+    /* Header & Navigation */
+    .ul-nav, .nav-ul, .navbar {
+        display: none !important;
+    }
+
+    .header-class {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo-name {
+        margin-right: auto;
+    }
+
+    .hire {
+        display: flex;
+        margin-left: auto;
+        margin-right: 15px;
+    }
+
+    .nav_toggle {
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+
+    /* Mobile Menu Drawer */
+    .slider-bar {
+        display: flex;
+        visibility: hidden; /* initially hidden */
+        opacity: 0;
+        transition: 0.5s all;
+    }
+
+    .slider-bar.toggled {
+        opacity: 1;
+        right: 0;
+        visibility: visible;
+        margin-top: 2rem;
+    }
+
+    /* About Section */
+    /* .about-content {
+        flex-direction: column;
+        text-align: center;
+    } */
+
+    .about-image-column, 
+    .about-text-column {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .about-text-column {
+        align-items: center;
+    }
+
+    .download-button {
+        margin: 1rem auto;
+    }
+
+    .stats-strip-about {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        text-align: center;
+        width: 100%; /* Changed from 50% to 100% for better mobile look */
+    }
+
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .connector-line img{
+        width: 170px;
+    }
+    .connector-left img{
+        width: 94px;
+    }
+}
+
+/* ================================================================
+   3. Small Tablets and Large Mobiles (Max Width: 768px)
+   ================================================================ */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .header-class {
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        gap: 0;
+    }
+
+    /* Ordering Header Elements */
+    .logo-name { order: 1; }
+    .hire { 
+        order: 2; 
+        margin-left: auto;
+        margin-right: 15px;
+    }
+    .nav_toggle { order: 3; margin-left: 0; }
+
+    /* Hero Section */
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+
+    .hero-section .hero-text { order: 2; }
+    .hero-section .hero-image {
+        order: 1;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .hero-section .hero-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-section .main-head .second-line {
+        padding-left: 0;
+        display: inline;
+    }
+
+    .hero-section .main-para {
+        font-size: 16px;
+    }
+
+    .hero-section .two-buttons {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .hero-section .two-buttons .button {
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+    /* About Section */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Grid Layouts & Sections */
+    .tools-section {
+        padding: 90px 1.5rem;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .tool-card {
+        width: 160px;
+        height: 190px;
+    }
+
+    .works .row {
+        grid-template-columns: 1fr;
+    }
+
+    .service-strip {
+       flex-direction: row;
+        gap: 1.5rem;
+        font-size: 15px;
+        padding: 1.5rem 0;
+        margin: 2rem auto -5rem;
+        text-align: center;
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    .lighting-effect {
+        display: none;
+    }
+    .connector-line,.connector-left{
+        display: none;
+    }
+}
+
+/* ================================================================
+   4. Medium Mobiles (Max Width: 640px)
+   ================================================================ */
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .bottom-row {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .service-strip{
+        font-size: 13px;
+    }
+    
+}
+
+/* ================================================================
+   5. Small Mobiles (Max Width: 600px - 500px)
+   ================================================================ */
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-section {
+        padding: 80px 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    .tool-card {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+    .hire{
+        padding: 10px 5px;
+    }
+}
+
+/* ================================================================
+   6. Desktop Only Rules (Min Width: 991px)
+   ================================================================ */
+@media screen and (min-width: 991px) {
+    .nav_toggle {
+        display: none;
+    }
+}

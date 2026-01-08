@@ -17,6 +17,10 @@
     color: white;
     text-decoration: none;
 }
+body {
+    margin: 0;
+    overflow-x: clip; /* hidden-u pakaram clip use cheyyuka */
+}
 h1,
 h2,
 h3,
@@ -41,7 +45,7 @@ p {
     min-height: 100vh;
     position: relative;
     color: var(--white-color);
-    overflow-x: clip; /* Ivideyum clip nalkuka */
+    overflow-x: clip;
 }
 .portfolio-sticky-wrapper {
     position: relative;
@@ -81,8 +85,12 @@ p {
 }
 body {
     margin: 0;
-    overflow-x: clip; /* hidden-u pakaram clip use cheyyuka */
+    overflow-x: hidden;
 }
+body {
+    overflow-x: hidden !important;
+}
+
 
 /* header-section--start ---------------------------*/
 header {
@@ -228,7 +236,8 @@ h6 {
     /* width: 1698px; */
     width: 100vw;
     height: 711px;
-    display: flex;
+    
+    position: absolute; 
 }
 .effect {
     background-color: var(--accent-color2);

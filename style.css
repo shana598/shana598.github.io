@@ -41,6 +41,7 @@ p {
     min-height: 100vh;
     position: relative;
     color: var(--white-color);
+    overflow-x: clip; /* Ivideyum clip nalkuka */
 }
 .portfolio-sticky-wrapper {
     position: relative;
@@ -64,7 +65,7 @@ p {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%; /* 100vw maatti 100% aakkuka */
     height: 100vh;
     z-index: 999;
     pointer-events: none;
@@ -80,7 +81,7 @@ p {
 }
 body {
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: clip; /* hidden-u pakaram clip use cheyyuka */
 }
 
 /* header-section--start ---------------------------*/
@@ -90,6 +91,7 @@ header {
     top: 0;
     z-index: 1000;
     background-color: var(--darkbg-color);
+    overflow-x: hidden; /* Header-il mathram hidden nalkuka */
 }
 
 .header-class {
@@ -220,7 +222,7 @@ h6 {
 }
 /* -------------------- */
 .lighting-effect {
-    position: absolute;
+    position:fixed;
     top: -204px;
     left: -116px;
     /* width: 1698px; */

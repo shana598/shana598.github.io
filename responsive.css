@@ -17,7 +17,6 @@
    2. Tablets and Smaller Desktops (Max Width: 992px)
    ================================================================ */
 @media (max-width: 992px) {
-    /* Fonts */
     h1 {
         font-size: 35px !important;
     }
@@ -25,7 +24,6 @@
         font-size: 34px !important;
     }
 
-    /* Header & Navigation */
     .ul-nav, .nav-ul, .navbar {
         display: none !important;
     }
@@ -54,10 +52,9 @@
         margin-left: 1rem;
     }
 
-    /* Mobile Menu Drawer */
     .slider-bar {
         display: flex;
-        visibility: hidden; /* initially hidden */
+        visibility: hidden;
         opacity: 0;
         transition: 0.5s all;
     }
@@ -68,12 +65,6 @@
         visibility: visible;
         margin-top: 2rem;
     }
-
-    /* About Section */
-    /* .about-content {
-        flex-direction: column;
-        text-align: center;
-    } */
 
     .about-image-column, 
     .about-text-column {
@@ -96,18 +87,15 @@
 
     .stat-box {
         text-align: center;
-        width: 100%; /* Changed from 50% to 100% for better mobile look */
+        width: 100%;
     }
 
-    /* Services Section */
     .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .connector-line img{
-        width: 170px;
-    }
-    .connector-left img{
-        width: 94px;
+
+    .lighting-effect, .connector-line, .connector-left {
+        display: none !important;
     }
 }
 
@@ -119,6 +107,11 @@
         padding: 0 1.5rem;
     }
 
+    header {
+        height: auto;
+        padding: 10px 0;
+    }
+
     .header-class {
         flex-direction: row !important;
         justify-content: space-between;
@@ -127,33 +120,28 @@
         gap: 0;
     }
 
-    /* Ordering Header Elements */
-    .logo-name { order: 1; }
-    .hire { 
-        order: 2; 
-        margin-left: auto;
-        margin-right: 15px;
+    /* Hero Section Fixes - ആ വലിയ ഗ്യാപ്പ് ഇവിടെയാണ് കുറയ്ക്കുന്നത് */
+    .hero-section {
+        margin-top: 60px !important; /* Header-ന് താഴെ കൃത്യമായി വരാൻ */
+        padding-top: 0 !important;
     }
-    .nav_toggle { order: 3; margin-left: 0; }
 
-    /* Hero Section */
     .hero-section .container {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
-        margin-top: 3rem;
+        gap: 1.5rem !important; /* Elements തമ്മിലുള്ള അകലം കുറച്ചു */
+        margin-top: 0 !important;
     }
 
-    .hero-section .hero-text { order: 2; }
     .hero-section .hero-image {
         order: 1;
         max-width: 80%;
         margin: 0 auto;
+        height: auto !important;
     }
 
-    .hero-section .hero-image img {
-        width: 100%;
-        height: auto;
+    .hero-section .hero-text {
+        order: 2;
     }
 
     .hero-section .main-head .second-line {
@@ -167,22 +155,16 @@
 
     .hero-section .two-buttons {
         justify-content: center;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
     }
 
-    .hero-section .two-buttons .button {
-        padding: 10px 15px;
-        font-size: 18px;
-    }
-    /* About Section */
     .about-content {
         flex-direction: column;
         text-align: center;
     }
 
-    /* Grid Layouts & Sections */
     .tools-section {
-        padding: 90px 1.5rem;
+        padding: 60px 1.5rem;
     }
 
     .tools-grid {
@@ -195,34 +177,19 @@
         height: 190px;
     }
 
-    .works .row {
-        grid-template-columns: 1fr;
-    }
-
     .service-strip {
-       flex-direction: row;
         gap: 1.5rem;
         font-size: 15px;
-        padding: 1.5rem 0;
         margin: 2rem auto -5rem;
-        text-align: center;
     }
 
-    /* Contact Section */
     .contact-wrapper {
         flex-direction: column;
-    }
-
-    .lighting-effect {
-        display: none;
-    }
-    .connector-line,.connector-left{
-        display: none;
     }
 }
 
 /* ================================================================
-   4. Medium Mobiles (Max Width: 640px)
+   4. Medium & Small Mobiles (Max Width: 640px)
    ================================================================ */
 @media (max-width: 640px) {
     .form-grid {
@@ -233,21 +200,8 @@
         align-items: flex-start;
         gap: 1rem;
     }
-    .service-strip{
+    .service-strip {
         font-size: 13px;
-    }
-    
-}
-
-/* ================================================================
-   5. Small Mobiles (Max Width: 600px - 500px)
-   ================================================================ */
-@media (max-width: 600px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .services-section {
-        padding: 80px 1.5rem;
     }
 }
 
@@ -260,13 +214,13 @@
         max-width: 260px;
         margin: 0 auto;
     }
-    .hire{
+    .hire {
         padding: 10px 5px;
     }
 }
 
 /* ================================================================
-   6. Desktop Only Rules (Min Width: 991px)
+   5. Desktop Only
    ================================================================ */
 @media screen and (min-width: 991px) {
     .nav_toggle {

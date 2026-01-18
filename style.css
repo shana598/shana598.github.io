@@ -300,8 +300,8 @@ h6 {
 }
 
 .nav_toggle span {
-    width: 35px;
-    height: 3px;
+    width: 27px;
+    height: 2px;
     background: var(--white-color);
     border-radius: 13px;
     border: solid 0.01px var(--white-color);
@@ -1449,8 +1449,8 @@ nav ul li a:hover:before {
 }
 
 .info-block {
-    margin-bottom: 24px;
     font-family: "Satoshi", sans-serif;
+    font-size: 19px;
 }
 
 .info-label {
@@ -1462,9 +1462,11 @@ nav ul li a:hover:before {
 .info-item {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
 }
-
+.item-1{
+    margin-top: 2rem;
+}
 .info-icon {
     width: 50px;
     height: 50px;
@@ -1473,7 +1475,12 @@ nav ul li a:hover:before {
     align-items: center;
     justify-content: center;
 }
-
+.info-icon img{
+    width: 25px;
+}
+.icon-2 img{
+    width: 20px;
+}
 /* SOCIAL ICONS */
 .socials {
     display: flex;

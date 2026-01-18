@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -372,7 +372,7 @@
                 </div>
             </section>
             <!-- TOOLS SECTION END -->
-            
+
             <!-- Project-SECTION START -->
             <section id="project">
                 <div id="project-list-section">
@@ -507,17 +507,19 @@
                             </h2>
 
                             <div class="info-block">
-                                <div class="info-label">Phone</div>
-                                <div class="info-item">
+                                <div class="info-label"></div>
+                                <div class="info-item item-1">
                                     <div class="info-icon"><img src="./img/pho.svg" alt="phone" /></div>
                                     <div class="info-text-main">+91 9746153564</div>
                                 </div>
                             </div>
 
                             <div class="info-block">
-                                <div class="info-label">Email</div>
+                                <div class="info-label"></div>
                                 <div class="info-item">
-                                    <div class="info-icon"><img src="./img/email.svg" alt="email" /></div>
+                                    <div class="info-icon icon-2">
+                                        <img src="./img/email.svg" alt="email" class="info-ico" />
+                                    </div>
                                     <div class="info-text-main">connect.shanapp@gmail.com</div>
                                 </div>
                             </div>
@@ -588,7 +590,10 @@
                                     Send Message <i class="fa-solid fa-arrow-right-long"></i>
                                 </button>
 
-                                <p id="form-status" style="margin-top: 15px; font-family: 'Satoshi', sans-serif"></p>
+                                <p
+                                    id="form-status"
+                                    style="margin-top: 15px; font-family: &quot;Satoshi&quot;, sans-serif"
+                                ></p>
                             </form>
                         </div>
                     </div>
@@ -600,7 +605,8 @@
                             <div class="icon-content">
                                 <span class="tooltip">Instagram</span>
                                 <a href="https://www.instagram.com/sh__aanaaa" target="_blank" data-social="instagram">
-                                    <i class="fab fa-instagram"></i></a>
+                                    <i class="fab fa-instagram"></i
+                                ></a>
                             </div>
                             <div class="icon-content">
                                 <span class="tooltip">Behance</span>
@@ -609,7 +615,8 @@
                             <div class="icon-content">
                                 <span class="tooltip">LinkedIn</span>
                                 <a href="https://www.linkedin.com/in/shana-pp" target="_blank" data-social="linkedin">
-                                    <i class="fab fa-linkedin-in"></i></a>
+                                    <i class="fab fa-linkedin-in"></i
+                                ></a>
                             </div>
                         </div>
                         <div class="copyright">© 2025 Shana pp. All Rights Reserved.</div>
@@ -691,15 +698,22 @@
             $(document).ready(function () {
                 console.log("JQuery is working!");
 
+                // Hamburger icon click cheyyumbbol menu open/close aakan
                 $(".nav_toggle").on("click", function (e) {
                     e.preventDefault();
                     $(".slider-bar").toggleClass("toggled");
                     $(this).toggleClass("clicked");
                     console.log("Button Clicked!");
                 });
+
+                // Menu-vinullile oro link click cheyyumbbolum menu close aakan
+                $(".slider-bar a").on("click", function () {
+                    $(".slider-bar").removeClass("toggled"); // Menu hide cheyyunnu
+                    $(".nav_toggle").removeClass("clicked"); // Hamburger icon pazhaya poleyaakkunnu
+                });
             });
         </script>
-        
+
         <script>
             // FAQ Accordion Logic
             document.querySelectorAll(".faq-question").forEach((button) => {

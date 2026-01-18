@@ -24,7 +24,9 @@
         font-size: 34px !important;
     }
 
-    .ul-nav, .nav-ul, .navbar {
+    .ul-nav,
+    .nav-ul,
+    .navbar {
         display: none !important;
     }
 
@@ -66,7 +68,7 @@
         margin-top: 2rem;
     }
 
-    .about-image-column, 
+    .about-image-column,
     .about-text-column {
         max-width: 100%;
         width: 100%;
@@ -94,7 +96,9 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .lighting-effect, .connector-line, .connector-left {
+    .lighting-effect,
+    .connector-line,
+    .connector-left {
         display: none !important;
     }
 }
@@ -197,7 +201,7 @@
     }
     .bottom-row {
         flex-direction: column-reverse;
-        align-items: flex-start;
+        /* align-items: flex-start; */
         gap: 1rem;
     }
     .service-strip {
@@ -228,56 +232,69 @@
     }
 }
 
-
-@media screen and (max-width: 380px){
-    header .container{
+@media screen and (max-width: 380px) {
+    header .container {
         padding: 1px;
         height: 4rem;
     }
-    a.hire-btn{
+    a.hire-btn {
         font-size: 12px;
     }
-    .header-class{
+    .header-class {
         padding: 1px;
     }
-    .sub-head{
+    .sub-head {
         width: 16rem;
         margin-left: 1.5rem;
     }
-    .sub-head h6{
+    .sub-head h6 {
         font-size: 13px;
     }
-    .main-head h1{
-       align-items: center;
+    .main-head h1 {
+        align-items: center;
     }
-    .main-para{
+    .main-para {
         padding: 24px;
     }
-    .two-buttons{
+    .two-buttons {
         margin-top: -1rem;
     }
-    .blob-btn{
+    .blob-btn {
         min-width: 130px;
         font-size: 15px;
     }
-    .about-section{
+    .about-section {
         margin-top: 0;
     }
-    .about-content{
+    .about-content {
         gap: 0;
     }
-    .about-me-subhead h1{
-      width: 20rem;
+    .about-me-subhead h1 {
+        width: 20rem;
     }
-    .description-para{
+    .description-para {
         width: 20rem;
         font-size: 15px;
     }
-    .stats-strip-about{
+    .stats-strip-about {
         margin-top: 2rem;
     }
-    .stat-box{
+    .stat-box {
         padding: 10px;
     }
-    
+    .copyright {
+        font-size: 12px;
+    }
+    .contact-section {
+        padding: 40px 0px 28px;
+    }
+    .service-text h2 {
+        font-size: 35px;
+    }
+    .tools-section .section-title {
+        font-size: 27px;
+    }
+    .header-space h1 {
+        font-size: 29px;
+    }
 }

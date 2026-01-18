@@ -227,3 +227,56 @@
         display: none;
     }
 }
+
+
+@media screen and (max-width: 380px){
+    header .container{
+        padding: 1px;
+        height: 4rem;
+    }
+    a.hire-btn{
+        font-size: 12px;
+    }
+    .header-class{
+        padding: 1px;
+    }
+    .sub-head{
+        width: 16rem;
+        margin-left: 1.5rem;
+    }
+    .sub-head h6{
+        font-size: 13px;
+    }
+    .main-head h1{
+       align-items: center;
+    }
+    .main-para{
+        padding: 24px;
+    }
+    .two-buttons{
+        margin-top: -1rem;
+    }
+    .blob-btn{
+        min-width: 130px;
+        font-size: 15px;
+    }
+    .about-section{
+        margin-top: 0;
+    }
+    .about-content{
+        gap: 0;
+    }
+    .about-me-subhead h1{
+      width: 20rem;
+    }
+    .description-para{
+        width: 20rem;
+        font-size: 15px;
+    }
+    .stats-strip-about{
+        margin-top: 2rem;
+    }
+    .stat-box{
+        padding: 10px;
+    }
+}

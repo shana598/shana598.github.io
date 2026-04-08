@@ -280,7 +280,7 @@ h6 {
     flex-direction: column;
     gap: 8px 0px;
     align-items: center;
-    cursor: pointer; /* മൗസ് വെക്കുമ്പോൾ കൈ ചിഹ്നം വരാൻ */
+    cursor: pointer; 
 
     /* പ്രധാന മാറ്റം ഇവിടെയാണ് */
     margin-left: auto;

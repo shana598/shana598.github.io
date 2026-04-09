@@ -1,227 +1,114 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>My Works</title>
+<head>
+<meta charset="UTF-8" />
+<title>My Works</title>
+<link rel="stylesheet" href="works.css">
 
-        <style>
-            :root {
-                --accent-color1: #9d86ff;
-                --accent-color2: #7d52fd;
-                --dark-color: #151022;
-                --para-color: #d0cfd3;
-                --white-color: #ffffff;
-                --darkbg-color: #1e1828;
-                --borderr: #3a3147;
-            }
 
-            /* Body */
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-                background: var(--dark-color);
-                color: var(--white-color);
-            }
+</head>
 
-            /* Header */
-            header {
-                background: var(--darkbg-color);
-                padding: 20px;
-                text-align: center;
-                position: relative;
-                border-bottom: 1px solid var(--borderr);
-            }
+<body>
 
-            /* 🔥 Back Button (Left Center) */
-            .back-btn {
-                position: absolute;
-                left: 20px;
-                top: 50%;
-                transform: translateY(-50%);
+<header>
+    <a href="index.html" class="back-btn">⬅ Back</a>
+    <h1>My Works</h1>
+</header>
 
-                padding: 10px 16px;
-                border-radius: 10px;
-                text-decoration: none;
-                color: var(--white-color);
-                background: linear-gradient(135deg, var(--accent-color1), var(--accent-color2));
-                font-size: 15px;
-                transition: 0.3s ease;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            }
+<div class="main-container">
 
-            .back-btn:hover {
-                transform: translateY(-50%) scale(1.08);
-                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-            }
+    <!-- 🔥 GRID -->
+    <div class="container" id="grid">
 
-            /* Main Container */
-            .main-container {
-                max-width: 1200px; /* increased width */
-                margin: 40px auto;
-                padding: 25px;
-                background: var(--darkbg-color);
-                border-radius: 12px;
-                border: 1px solid var(--borderr);
-            }
-
-            /* Grid */
-            .container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-
-            /* Card */
-            .card {
-                position: relative;
-                border-radius: 14px;
-                overflow: hidden;
-                border: 1px solid var(--borderr);
-                transition: transform 0.3s ease;
-            }
-
-            .card:hover {
-                transform: scale(1.03);
-            }
-
-            /* Image */
-            .card img {
-                width: 100%;
-                height: 300px; /* increased height */
-                object-fit: cover;
-                display: block;
-            }
-
-            /* Overlay */
-            .overlay {
-                position: absolute;
-                inset: 0;
-                background: rgba(21, 16, 34, 0.85);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                opacity: 0;
-                transition: 0.4s ease;
-                padding: 20px;
-            }
-
-            .card:hover .overlay {
-                opacity: 1;
-            }
-
-            /* Text */
-            .overlay h3 {
-                color: var(--accent-color1);
-                margin-bottom: 10px;
-            }
-
-            .overlay p {
-                color: var(--para-color);
-                font-size: 14px;
-                margin-bottom: 15px;
-            }
-
-            /* Button */
-            .btn {
-                padding: 8px 14px;
-                border-radius: 6px;
-                text-decoration: none;
-                color: white;
-                background: linear-gradient(135deg, var(--accent-color1), var(--accent-color2));
-                font-size: 14px;
-            }
-
-            .btn:hover {
-                opacity: 0.9;
-            }
-
-            /* Mobile */
-            @media (max-width: 768px) {
-                .container {
-                    grid-template-columns: 1fr;
-                }
-
-                .main-container {
-                    margin: 20px;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <header>
-            <a href="index.html" class="back-btn">⬅ Back</a>
-            <h1>My Works</h1>
-        </header>
-
-        <div class="main-container">
-            <div class="container">
-                <!-- Repeat 6 cards -->
-
-                <div class="card">
-                    <img src="img/mockup1.svg" />
-                    <div class="overlay">
-                        <h3>Project 1</h3>
-                        <p>Website Design</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="img/mockup2.svg" />
-                    <div class="overlay">
-                        <h3>Project 2</h3>
-                        <p>Mobile App UI</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="img/mockup3.svg" />
-                    <div class="overlay">
-                        <h3>Project 3</h3>
-                        <p>Dashboard UI</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="img/mockup4.svg" />
-                    <div class="overlay">
-                        <h3>Project 4</h3>
-                        <p>E-commerce Design</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="img/mockup5.svg" />
-                    <div class="overlay">
-                        <h3>Project 5</h3>
-                        <p>Landing Page</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
-
-                <!-- <div class="card">
-                    <img src="img/mockup6.svg" />
-                    <div class="overlay">
-                        <h3>Project 6</h3>
-                        <p>Portfolio UI</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div> -->
-                <div class="card">
-                    <img src="img/mockup7.png" />
-                    <div class="overlay">
-                        <h3>Project 6</h3>
-                        <p>Portfolio UI</p>
-                        <a href="#" class="btn">View</a>
-                    </div>
-                </div>
+        <div class="card">
+            <img src="img/mockup1.svg">
+            <div class="overlay">
+                <h3>Project 1</h3>
+                <p>Website Design</p>
+                <a href="#" class="btn" data-img="img/pic-3.svg">View</a>
             </div>
         </div>
-    </body>
+
+        <div class="card">
+            <img src="img/mockup2.svg">
+            <div class="overlay">
+                <h3>Project 2</h3>
+                <p>Mobile App UI</p>
+                <a href="#" class="btn" data-img="img/Desktop - 3.svg">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/mockup3.svg">
+            <div class="overlay">
+                <h3>Project 3</h3>
+                <p>Dashboard UI</p>
+                <a href="#" class="btn" data-img="img/Desktop-4.svg">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/mockup4.svg">
+            <div class="overlay">
+                <h3>Project 4</h3>
+                <p>E-commerce Design</p>
+                <a href="#" class="btn" data-img="img/Desktop-5.svg">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/mockup5.svg">
+            <div class="overlay">
+                <h3>Project 5</h3>
+                <p>Landing Page</p>
+                <a href="#" class="btn" data-img="img/Desktop -1.svg.svg">View</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/mockup7.png">
+            <div class="overlay">
+                <h3>Project 6</h3>
+                <p>Portfolio UI</p>
+                <a href="#" class="btn" data-img="img/mockup7.png">View</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 🔥 PREVIEW -->
+    <div class="preview" id="preview">
+        <div class="pre-button"><button id="backBtn">⬅ Back to works</button></div>
+        
+        <img id="previewImg">
+    </div>
+
+</div>
+
+<script>
+const buttons = document.querySelectorAll(".btn");
+const grid = document.getElementById("grid");
+const preview = document.getElementById("preview");
+const previewImg = document.getElementById("previewImg");
+const backBtn = document.getElementById("backBtn");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const imgSrc = btn.getAttribute("data-img");
+
+        grid.style.display = "none";
+        preview.style.display = "block";
+        previewImg.src = imgSrc;
+    });
+});
+
+backBtn.addEventListener("click", () => {
+    preview.style.display = "none";
+    grid.style.display = "grid";
+});
+</script>
+
+</body>
 </html>

@@ -632,7 +632,7 @@
             const btn = document.getElementById("submit-button");
 
             form.addEventListener("submit", async function (event) {
-                event.preventDefault(); // പേജ് ലോഡ് ആകുന്നത് തടയുന്നു
+                event.preventDefault(); 
 
                 const data = new FormData(event.target);
                 status.innerHTML = "Sending...";
@@ -648,7 +648,7 @@
                     if (response.ok) {
                         status.innerHTML = "Success! Your message has been sent.";
                         status.style.color = "#4CAF50";
-                        form.reset(); // ഫോം ക്ലിയർ ചെയ്യുന്നു
+                        form.reset(); 
                     } else {
                         status.innerHTML = "Oops! Problem sending message.";
                         status.style.color = "#f44336";
@@ -665,7 +665,7 @@
             let lastScrollPosition = 0;
 
             function openDesign(imgSrc) {
-                // നിലവിലെ സ്ക്രോൾ പൊസിഷൻ സേവ് ചെയ്യുന്നു
+               
                 lastScrollPosition = window.scrollY;
 
                 document.getElementById("project-list-section").style.display = "none";
@@ -673,7 +673,7 @@
                 detailView.style.display = "block";
                 document.getElementById("design-display-img").src = imgSrc;
 
-                // പുതിയ പേജിന്റെ മുകളിലേക്ക് മാറ്റുന്നു
+                
                 window.scrollTo(0, 0);
             }
 
@@ -681,7 +681,7 @@
                 document.getElementById("full-design-view").style.display = "none";
                 document.getElementById("project-list-section").style.display = "block";
 
-                // സേവ് ചെയ്ത പൊസിഷനിലേക്ക് സ്ക്രോൾ ചെയ്യുന്നു
+                
                 window.scrollTo(0, lastScrollPosition);
             }
         </script>
@@ -698,7 +698,7 @@
             $(document).ready(function () {
                 console.log("JQuery is working!");
 
-                // Hamburger icon click cheyyumbbol menu open/close aakan
+                
                 $(".nav_toggle").on("click", function (e) {
                     e.preventDefault();
                     $(".slider-bar").toggleClass("toggled");
@@ -706,26 +706,26 @@
                     console.log("Button Clicked!");
                 });
 
-                // Menu-vinullile oro link click cheyyumbbolum menu close aakan
+              
                 $(".slider-bar a").on("click", function () {
-                    $(".slider-bar").removeClass("toggled"); // Menu hide cheyyunnu
-                    $(".nav_toggle").removeClass("clicked"); // Hamburger icon pazhaya poleyaakkunnu
+                    $(".slider-bar").removeClass("toggled"); 
+                    $(".nav_toggle").removeClass("clicked"); 
                 });
             });
         </script>
 
         <script>
-            // FAQ Accordion Logic
+          
             document.querySelectorAll(".faq-question").forEach((button) => {
                 button.addEventListener("click", () => {
                     const faqItem = button.parentElement;
 
-                    // Close other items (optional: if you want only one open at a time)
+                   
                     document.querySelectorAll(".faq-item").forEach((item) => {
                         if (item !== faqItem) item.classList.remove("active");
                     });
 
-                    // Toggle current item
+                  
                     faqItem.classList.toggle("active");
                 });
             });

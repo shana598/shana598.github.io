@@ -1209,6 +1209,9 @@ nav ul li a:hover:before {
 .card-4 {
     z-index: 4;
 }
+.card-5 {
+    z-index: 5;
+}
 
 /* ================= FULL DESIGN VIEW ================= */
 #full-design-view {

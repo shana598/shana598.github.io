@@ -57,12 +57,15 @@ header {
 /* CARD */
 .card {
     position: relative;
+    display: block;
+    min-height: 300px;
     border-radius: 14px;
     overflow: hidden;
     border: 1px solid var(--border);
 }
 
 .card img {
+    display: block;
     width: 100%;
     height: 300px;
     object-fit: cover;

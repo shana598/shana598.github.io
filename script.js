@@ -120,29 +120,26 @@
 
 
             function openDesign(imgSrc) {
-                // മെയിൻ ലിസ്റ്റ് മറയ്ക്കുന്നു
                 document.getElementById("project-list-section").style.display = "none";
 
-                // ഡിസൈൻ സെക്ഷൻ കാണിക്കുന്നു
                 const detailView = document.getElementById("full-design-view");
                 detailView.style.display = "block";
 
-                // ഇമേജ് സെറ്റ് ചെയ്യുന്നു
-                document.getElementById("design-display-img").src = imgSrc;
+                const designDisplayImg = document.getElementById("design-display-img");
+                if (imgSrc === "./img/FOOD APP.svg") {
+                    designDisplayImg.classList.add("food-app-preview");
+                } else {
+                    designDisplayImg.classList.remove("food-app-preview");
+                }
+                designDisplayImg.src = imgSrc;
 
-                // പേജിന്റെ മുകളിലേക്ക് സ്ക്രോൾ ചെയ്യുന്നു
                 window.scrollTo(0, 0);
             }
 
             function closeDesign() {
-                // ഡിസൈൻ സെക്ഷൻ മറയ്ക്കുന്നു
                 document.getElementById("full-design-view").style.display = "none";
-
-                // മെയിൻ ലിസ്റ്റ് തിരികെ കാണിക്കുന്നു
+                document.getElementById("design-display-img").classList.remove("food-app-preview");
                 document.getElementById("project-list-section").style.display = "block";
-
-                // പഴയ പൊസിഷനിലേക്ക് തിരികെ പോകാൻ ഇത് സഹായിക്കും
-                // (നിങ്ങൾ എവിടെയാണോ ക്ലിക്ക് ചെയ്തത് അവിടെ തന്നെ തിരിച്ചെത്തും)
             }
 
 

@@ -69,7 +69,9 @@
                             <a href="#hero-section">HOME</a>
                             <a href="#about-section">ABOUT</a>
                             <a href="#services-section">SERVICE</a>
+                            <a href="#tools-section">TOOLS</a>
                             <a href="#project">PORTFOLIO</a>
+                            <a href="#faq-section">FAQ</a>
                             <a href="#contact">CONTACT</a>
                         </nav>
 
@@ -103,7 +105,13 @@
                                 <a href="#services-section"><i class="fa-brands fa-servicestack"></i> &nbsp; Services</a>
                             </li>
                             <li>
+                                <a href="#tools-section"><i class="fa-solid fa-screwdriver-wrench"></i> &nbsp; Tools</a>
+                            </li>
+                            <li>
                                 <a href="#project"><i class="fa-solid fa-diagram-project"></i> &nbsp; Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="#faq-section"><i class="fa-solid fa-circle-question"></i> &nbsp; FAQ</a>
                             </li>
                             <li>
                                 <a href="#contact"><i class="fa-solid fa-user"></i> &nbsp; Contact</a>
@@ -152,7 +160,7 @@
                             </div>
 
                             <div class="button blob-btn btn-works">
-                                <a href="#project">My Works</a>
+                                <a href="index.html#project">My Works</a>
                                 <span class="blob-btn__inner">
                                     <span class="blob-btn__blobs">
                                         <span class="blob-btn__blob"></span>
@@ -422,7 +430,7 @@
                             </div>
                         </div>
 
-                        <div class="project-card card-5" onclick="openDesign('./img/Foo App mockup.png')">
+                        <div class="project-card card-5" onclick="openDesign('./img/FOOD APP.svg')">
                             <div class="work-inner">
                                 <img src="img/Foo App mockup.png" alt="Food app project mockup" />
                                 <div class="work-overlay">
@@ -440,7 +448,7 @@
                 <div id="full-design-view">
                     <div class="design-nav">
                         <h4 id="project-title" style="margin: 0">Project Detail</h4>
-                        <button class="back-btn" onclick="closeDesign()">← Back to Projects</button>
+                        <a class="back-btn" href="index.html#project" onclick="closeDesign()" aria-label="Back to Portfolio">←</a>
                     </div>
                     <div class="full-img-container">
                         <img id="design-display-img" src="" alt="Full Design" />
@@ -672,27 +680,31 @@
             });
         </script>
         <script>
-            let lastScrollPosition = 0;
+            let projectListScrollPosition = 0;
 
             function openDesign(imgSrc) {
-               
-                lastScrollPosition = window.scrollY;
-
+                projectListScrollPosition = window.scrollY;
                 document.getElementById("project-list-section").style.display = "none";
                 const detailView = document.getElementById("full-design-view");
+                const designDisplayImg = document.getElementById("design-display-img");
+                if (imgSrc === "./img/FOOD APP.svg") {
+                    designDisplayImg.classList.add("food-app-preview");
+                } else {
+                    designDisplayImg.classList.remove("food-app-preview");
+                }
                 detailView.style.display = "block";
-                document.getElementById("design-display-img").src = imgSrc;
+                designDisplayImg.src = imgSrc;
 
                 
                 window.scrollTo(0, 0);
             }
 
             function closeDesign() {
-                document.getElementById("full-design-view").style.display = "none";
+                const detailView = document.getElementById("full-design-view");
+                document.getElementById("design-display-img").classList.remove("food-app-preview");
+                detailView.style.display = "none";
                 document.getElementById("project-list-section").style.display = "block";
-
-                
-                window.scrollTo(0, lastScrollPosition);
+                requestAnimationFrame(() => window.scrollTo(0, projectListScrollPosition));
             }
         </script>
         <script src="script.js"></script>

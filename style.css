@@ -282,18 +282,16 @@ h6 {
     align-items: center;
     cursor: pointer; 
 
-    /* പ്രധാന മാറ്റം ഇവിടെയാണ് */
     margin-left: auto;
     transition: 0.3s;
-    z-index: 1001; /* മെനുവിന് മുകളിൽ നിൽക്കാൻ */
+    z-index: 1001;
 }
 
-/* ഐക്കൺ വശങ്ങളിൽ മുട്ടി ഇരിക്കാതിരിക്കാൻ കണ്ടെയ്‌നറിൽ ചെറിയ മാറ്റം */
 .header-class {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; /* മുഴുവൻ വലിപ്പവും എടുക്കാൻ */
+    width: 100%;
     gap: 2rem;
     position: relative;
     z-index: 1;
@@ -394,13 +392,13 @@ nav ul li a:hover:before {
     width: 100%;
     max-width: 500px; /* same width */
     height: 500px; /* IMPORTANT: fixed height */
-    overflow: hidden; /* zoom പുറത്തേക്ക് പോകരുത് */
+    overflow: hidden;
 }
 
 .hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* image stretch ആകരുത് */
+    object-fit: cover;
     display: block;
 
     filter: grayscale(100%);
@@ -452,10 +450,9 @@ nav ul li a:hover:before {
 
 .inner-header {
     position: relative;
-    animation: slide 9s infinite; /* 9 സെക്കൻഡിൽ ആനിമേഷൻ ലൂപ്പ് ചെയ്യും */
+    animation: slide 9s infinite;
 }
 
-/* ആനിമേഷൻ സ്റ്റെപ്പുകൾ */
 @keyframes slide {
     0%,
     25% {
@@ -464,14 +461,14 @@ nav ul li a:hover:before {
     33%,
     58% {
         top: -1.2em;
-    } /* രണ്ടാമത്തെ വാക്ക് (Web Developer) */
+    }
     66%,
     91% {
         top: -2.4em;
-    } /* മൂന്നാമത്തെ വാക്ക് (App Designer) */
+    }
     100% {
         top: -3.6em;
-    } /* തിരികെ ആദ്യ വാക്കിലേക്ക് */
+    }
 }
 
 /* SUB-HEAD */
@@ -1149,10 +1146,10 @@ nav ul li a:hover:before {
 .project-card {
     position: -webkit-sticky;
     position: sticky;
-    top: 80px; /* സ്ക്രോൾ ചെയ്യുമ്പോൾ മുകളിൽ നിൽക്കേണ്ട ദൂരം */
+    top: 80px;
     height: 550px;
     width: 100%;
-    /* 🔧 FIX: 20vh മാറ്റി 80px ആക്കി, ഇതോടെ അനാവശ്യ ഗ്യാപ്പ് മാറും */
+    /* FIX: Use 80px to avoid excess spacing. */
     margin-bottom: 80px;
     border-radius: 40px;
     overflow: hidden;
@@ -1196,7 +1193,7 @@ nav ul li a:hover:before {
     margin-bottom: 10px;
 }
 
-/* STACKING ORDER: ഒന്നിനു മുകളിൽ ഒന്നായി വരാൻ */
+/* STACKING ORDER */
 .card-1 {
     z-index: 1;
 }
@@ -1221,20 +1218,37 @@ nav ul li a:hover:before {
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0; /* 🔧 താഴെ വരെ ഉണ്ടെന്ന് ഉറപ്പാക്കുന്നു */
+    bottom: 0;
     z-index: 99999;
-    overflow-y: scroll; /* 🔧 നിർബന്ധമായും സ്ക്രോൾ ചെയ്യാൻ (scroll അല്ലെങ്കിൽ auto) */
-    -webkit-overflow-scrolling: touch; /* മൊബൈലിൽ സ്മൂത്ത് സ്ക്രോളിംഗിന് */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* ഇമേജ് കണ്ടെയ്നർ ശരിയാക്കാൻ */
 .full-img-container {
     width: 100%;
     display: flex;
-    flex-direction: column; /* ഒന്നിലധികം ഇമേജ് ഉണ്ടെങ്കിൽ താഴെ താഴെ വരാൻ */
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 40px 20px;
-    min-height: 100%; /* കണ്ടന്റ് കുറവാണെങ്കിലും സ്ക്രോൾ ഏരിയ നിലനിർത്താൻ */
+    min-height: 100%;
+}
+
+#design-display-img.food-app-preview {
+    display: block;
+    width: 100%;
+    max-width: 744px;
+    height: 354px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #design-display-img.food-app-preview {
+        height: auto;
+        max-height: 354px;
+    }
 }
 .design-nav {
     position: sticky;
@@ -1243,17 +1257,24 @@ nav ul li a:hover:before {
     background: rgba(11, 11, 11, 0.95);
     backdrop-filter: blur(10px);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     z-index: 100001;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+#project-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .back-btn {
+    position: relative;
+    z-index: 1;
     background: white;
     color: black;
     border: none;
-    padding: 10px 25px;
+    padding: 10px 14px;
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
@@ -1265,22 +1286,15 @@ nav ul li a:hover:before {
     color: white;
 }
 
-.full-img-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-/* ബട്ടൺ കണ്ടെയ്നർ */
 .view-more-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px; /* കാർഡുകളിൽ നിന്നുള്ള അകലം */
+    margin-top: 50px;
     padding-bottom: 60px;
 }
 
-/* View More ബട്ടൺ സ്റ്റൈൽ */
+/* View More button style */
 .view-more-btn {
     display: inline-block;
     padding: 15px 40px;

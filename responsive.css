@@ -124,16 +124,16 @@
         gap: 0;
     }
 
-    /* Hero Section Fixes - ആ വലിയ ഗ്യാപ്പ് ഇവിടെയാണ് കുറയ്ക്കുന്നത് */
+    /* Hero Section Fixes */
     .hero-section {
-        margin-top: 60px !important; /* Header-ന് താഴെ കൃത്യമായി വരാൻ */
+        margin-top: 60px !important;
         padding-top: 0 !important;
     }
 
     .hero-section .container {
         flex-direction: column;
         text-align: center;
-        gap: 1.5rem !important; /* Elements തമ്മിലുള്ള അകലം കുറച്ചു */
+        gap: 1.5rem !important;
         margin-top: 0 !important;
     }
 

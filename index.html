@@ -6,6 +6,14 @@
         <title>SHANA</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="responsive.css" />
+        <script>
+            try {
+                document.documentElement.dataset.theme =
+                    localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light";
+            } catch {
+                document.documentElement.dataset.theme = "light";
+            }
+        </script>
 
         <!-- AOS -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -83,6 +91,17 @@
                                 </a>
                             </h6>
                         </div>
+
+                        <button
+                            class="theme-toggle"
+                            id="theme-toggle"
+                            type="button"
+                            aria-label="Switch to dark mode"
+                            title="Switch to dark mode"
+                        >
+                            <span class="theme-icon-sun" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+                            <span class="theme-icon-moon" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+                        </button>
 
                         <div class="nav_toggle">
                             <span></span>
@@ -544,7 +563,16 @@
                         </div>
 
                         <div class="contact-form-wrapper">
-                            <form action="https://formspree.io/f/your-id-here" method="POST" id="contact-form">
+                            <form
+                                action="https://formspree.io/f/mnpnenyo"
+                                method="POST"
+                                id="contact-form"
+                                novalidate
+                            >
+                                <div class="form-honeypot" aria-hidden="true">
+                                    <label for="contact-website">Leave this field empty</label>
+                                    <input id="contact-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                                </div>
                                 <div class="form-grid">
                                     <div class="form-group">
                                         <label for="name">Full Name</label>
@@ -554,8 +582,13 @@
                                             id="name"
                                             name="name"
                                             placeholder="e.g. Shana"
+                                            autocomplete="name"
+                                            minlength="2"
+                                            aria-invalid="false"
+                                            aria-describedby="name-error"
                                             required
                                         />
+                                        <p class="form-field-error" id="name-error" aria-live="polite"></p>
                                     </div>
 
                                     <div class="form-group">
@@ -566,8 +599,12 @@
                                             id="email"
                                             name="email"
                                             placeholder="e.g. example@gmail.com"
+                                            autocomplete="email"
+                                            aria-invalid="false"
+                                            aria-describedby="email-error"
                                             required
                                         />
+                                        <p class="form-field-error" id="email-error" aria-live="polite"></p>
                                     </div>
 
                                     <div class="form-group">
@@ -578,7 +615,13 @@
                                             id="phone"
                                             name="phone"
                                             placeholder="e.g. +91 9746153564"
+                                            autocomplete="tel"
+                                            inputmode="tel"
+                                            aria-invalid="false"
+                                            aria-describedby="phone-error"
+                                            required
                                         />
+                                        <p class="form-field-error" id="phone-error" aria-live="polite"></p>
                                     </div>
 
                                     <div class="form-group">
@@ -599,17 +642,26 @@
                                             id="message"
                                             name="message"
                                             placeholder="Tell me about your idea..."
+                                            minlength="10"
+                                            aria-invalid="false"
+                                            aria-describedby="message-error"
                                             required
                                         ></textarea>
+                                        <p class="form-field-error" id="message-error" aria-live="polite"></p>
                                     </div>
                                 </div>
 
                                 <button class="submit-btn" type="submit" id="submit-button">
-                                    Send Message <i class="fa-solid fa-arrow-right-long"></i>
+                                    <span id="submit-button-label">Send Message</span>
+                                    <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
                                 </button>
 
                                 <p
                                     id="form-status"
+                                    class="form-status"
+                                    role="status"
+                                    aria-live="polite"
+                                    aria-atomic="true"
                                     style="margin-top: 15px; font-family: &quot;Satoshi&quot;, sans-serif"
                                 ></p>
                             </form>
@@ -644,41 +696,6 @@
 
             <!-- contact-section-end -->
         </section>
-        <script>
-            const form = document.getElementById("contact-form");
-            const status = document.getElementById("form-status");
-            const btn = document.getElementById("submit-button");
-
-            form.addEventListener("submit", async function (event) {
-                event.preventDefault(); 
-
-                const data = new FormData(event.target);
-                status.innerHTML = "Sending...";
-                btn.disabled = true;
-
-                try {
-                    const response = await fetch(event.target.action, {
-                        method: form.method,
-                        body: data,
-                        headers: { Accept: "application/json" },
-                    });
-
-                    if (response.ok) {
-                        status.innerHTML = "Success! Your message has been sent.";
-                        status.style.color = "#4CAF50";
-                        form.reset(); 
-                    } else {
-                        status.innerHTML = "Oops! Problem sending message.";
-                        status.style.color = "#f44336";
-                    }
-                } catch (error) {
-                    status.innerHTML = "Communication error.";
-                    status.style.color = "#f44336";
-                } finally {
-                    btn.disabled = false;
-                }
-            });
-        </script>
         <script>
             let projectListScrollPosition = 0;
 

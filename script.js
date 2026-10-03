@@ -1,4 +1,150 @@
 
+const themeToggle = document.getElementById("theme-toggle");
+
+if (themeToggle) {
+    const setTheme = (theme) => {
+        document.documentElement.dataset.theme = theme;
+        const nextTheme = theme === "dark" ? "light" : "dark";
+        const label = `Switch to ${nextTheme} mode`;
+        themeToggle.setAttribute("aria-label", label);
+        themeToggle.title = label;
+
+        try {
+            localStorage.setItem("portfolio-theme", theme);
+        } catch {}
+    };
+
+    setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+    themeToggle.addEventListener("click", () => {
+        setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+    });
+}
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+    const submitButton = document.getElementById("submit-button");
+    const submitButtonLabel = document.getElementById("submit-button-label");
+    const formStatus = document.getElementById("form-status");
+    const honeypot = contactForm.elements.namedItem("_gotcha");
+    const validationFields = ["name", "email", "phone", "message"].map((fieldName) =>
+        document.getElementById(fieldName),
+    );
+    let hasAttemptedSubmit = false;
+    let isSubmitting = false;
+
+    const setStatus = (message, state) => {
+        formStatus.textContent = message;
+        if (message) {
+            formStatus.dataset.state = state;
+        } else {
+            delete formStatus.dataset.state;
+        }
+    };
+
+    const validateField = (field) => {
+        const value = field.value.trim();
+        let message = "";
+
+        if (field.id === "name" && value.length < 2) {
+            message = value ? "Please enter at least 2 characters." : "Please enter your full name.";
+        } else if (field.id === "email") {
+            if (!value) {
+                message = "Please enter your email address.";
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+                message = "Please enter a valid email address.";
+            }
+        } else if (field.id === "phone") {
+            const digits = value.replace(/\D/g, "").length;
+            if (!value) {
+                message = "Please enter your phone number.";
+            } else if (!/^\+?[\d\s().-]+$/.test(value) || digits < 7 || digits > 15) {
+                message = "Please enter a valid phone number, including country code if needed.";
+            }
+        } else if (field.id === "message") {
+            message = value.length < 10 ? "Please enter a message of at least 10 characters." : "";
+        }
+
+        const errorElement = document.getElementById(`${field.id}-error`);
+        field.setAttribute("aria-invalid", String(Boolean(message)));
+        errorElement.textContent = message;
+        errorElement.classList.toggle("is-visible", Boolean(message));
+        return !message;
+    };
+
+    validationFields.forEach((field) => {
+        field.addEventListener("input", () => {
+            if (hasAttemptedSubmit || field.getAttribute("aria-invalid") === "true") {
+                validateField(field);
+            }
+            if (formStatus.textContent) {
+                setStatus("", "");
+            }
+        });
+
+        field.addEventListener("blur", () => {
+            if (hasAttemptedSubmit) {
+                validateField(field);
+            }
+        });
+    });
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (isSubmitting || (honeypot && honeypot.value)) {
+            return;
+        }
+
+        hasAttemptedSubmit = true;
+        const invalidFields = validationFields.filter((field) => !validateField(field));
+        if (invalidFields.length) {
+            invalidFields[0].focus();
+            return;
+        }
+
+        validationFields.forEach((field) => {
+            field.value = field.value.trim();
+        });
+        document.getElementById("subject").value = document.getElementById("subject").value.trim();
+
+        isSubmitting = true;
+        submitButton.disabled = true;
+        submitButton.setAttribute("aria-busy", "true");
+        submitButtonLabel.textContent = "Sending...";
+        contactForm.setAttribute("aria-busy", "true");
+        setStatus("", "");
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: { Accept: "application/json" },
+            });
+
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
+
+            contactForm.reset();
+            validationFields.forEach((field) => {
+                field.setAttribute("aria-invalid", "false");
+                const errorElement = document.getElementById(`${field.id}-error`);
+                errorElement.textContent = "";
+                errorElement.classList.remove("is-visible");
+            });
+            hasAttemptedSubmit = false;
+            setStatus("Message sent successfully! I'll get back to you soon.", "success");
+        } catch {
+            setStatus("Something went wrong. Please try again or contact me directly.", "error");
+        } finally {
+            isSubmitting = false;
+            submitButton.disabled = false;
+            submitButton.removeAttribute("aria-busy");
+            submitButtonLabel.textContent = "Send Message";
+            contactForm.removeAttribute("aria-busy");
+        }
+    });
+}
 
 
 

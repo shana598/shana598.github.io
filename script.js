@@ -14,7 +14,7 @@ if (themeToggle) {
         } catch {}
     };
 
-    setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+    setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
     themeToggle.addEventListener("click", () => {
         setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
     });

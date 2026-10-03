@@ -9,9 +9,9 @@
         <script>
             try {
                 document.documentElement.dataset.theme =
-                    localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light";
+                    localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark";
             } catch {
-                document.documentElement.dataset.theme = "light";
+                document.documentElement.dataset.theme = "dark";
             }
         </script>
 

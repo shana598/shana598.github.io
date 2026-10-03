@@ -10,7 +10,7 @@ if (themeToggle) {
         themeToggle.title = label;
 
         try {
-            localStorage.setItem("portfolio-theme", theme);
+            localStorage.setItem("theme", theme);
         } catch {}
     };
 
